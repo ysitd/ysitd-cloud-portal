@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+require('babel-core/register');
+
+const app = require('../src/Application');
+const port = normalizePort(require('../src/utils/config')('PORT', 3000));
+app.listen(port, function () {
+  console.log('Listening...');
+});
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
