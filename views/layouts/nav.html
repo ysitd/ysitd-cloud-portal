@@ -7,7 +7,18 @@
             </a>
             <ul class="nav">
                 <li>
-                    <a class="waves-attach" href="#">Service Health</a>
+                    <a class="waves-attach" data-toggle="collapse" href="#collapse-health">Service Health</a>
+                    <ul class="menu-collapse collapse" id="collapse-health">
+                        <li>
+                            <a class="waves-attach" href="/health">Overview</a>
+                        </li>
+
+                        {% for node in nodes %}
+                        <li>
+                            <a class="waves-attach" href="/health/{{node.id}}">{{ node.name | upper}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </li>
             </ul>
         </div>

@@ -1,7 +1,6 @@
 {
-  "name": "protal",
+  "name": "ysitd-portal",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "web": "node ./bin/web",
     "dev": "supervisor ./bin/web"
@@ -15,11 +14,12 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "express-session": "^1.14.0",
+    "fivebeans": "^1.4.1",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
     "nunjucks": "^2.4.2",
+    "pg": "^6.0.2",
     "redis": "^2.6.2",
-    "serve-favicon": "^2.3.0",
     "serve-static": "^1.11.1",
     "winston": "^2.2.0"
   },
