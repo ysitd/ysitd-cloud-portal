@@ -1,4 +1,4 @@
-require('dotenv').load({silent: true, path: `${__dirname}/../.env`});
+require('dotenv').load({silent: true, path: `${__dirname}/../../.env`});
 
 function env(param, fallback) {
   const defaultValue = typeof fallback !== 'undefined' ? fallback : null;
