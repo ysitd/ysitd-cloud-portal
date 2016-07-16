@@ -8,7 +8,9 @@ const sess = session({
   cookie: {
     secure: true
   },
-  secret: config('cookie_secret'),
+  secret: config('cookie_secret', 'foobar'),
+  resave: false,
+  saveUninitialized: true,
   name: 'YSITD_CLOUD',
   store: new RedisStore({
     ttl: 60 * 60,

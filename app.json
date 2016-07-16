@@ -5,8 +5,7 @@
       "watch": true,
       "name": "ysitd-cloud-portal",
       "ignore_watch": [
-        "storages",
-        "views",
+        "storages", "views", ".idea",
         "db", "assets", "public"
       ]
     }

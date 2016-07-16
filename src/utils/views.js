@@ -1,12 +1,14 @@
-const defaultView = {
-  username: 'foo',
-  logo: '/images/user.png',
-  nodes: [
-    {id: 'hkg-1', name: 'HKG - 1'}
-  ]
-};
+export default function view(request, response, view, opts) {
+  const local = Object.assign({}, opts);
+  if (request.session) {
+    local.session = request.session;
+    if ('roles' in request.session) {
+      local.roles = request.session.roles;
+    }
 
-export default function view(response, view, opts) {
-  const local = Object.assign({}, defaultView, opts);
+    if ('root' in request.session) {
+      local.root = request.session.root;
+    }
+  }
   response.render(view, local);
 }

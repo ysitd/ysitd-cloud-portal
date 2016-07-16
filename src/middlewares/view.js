@@ -2,6 +2,11 @@ import {Environment, FileSystemLoader} from 'nunjucks';
 import {basename} from 'path';
 
 const env = new Environment(new FileSystemLoader(`${__dirname}/../../views`, {watch: true}));
+
+env.addGlobal('nodes', [
+  {id: 'hkg-1', name: 'HKG - 1'}
+]);
+
 function view() {
   return function (file, opts, cb) {
     env.render(basename(file), opts, cb)
