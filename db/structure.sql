@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS users (
   user_name TEXT NOT NULL,
   display_name TEXT NOT NULL,
   email TEXT NOT NULL,
+  root BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (user_id),
   UNIQUE (user_name, github_id)
 );
