@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS users (
   display_name TEXT NOT NULL,
   email TEXT NOT NULL,
   PRIMARY KEY (user_id),
-  UNIQUE (user_name)
+  UNIQUE (user_name, github_id)
 );
 
 CREATE TRIGGER users_human_audit

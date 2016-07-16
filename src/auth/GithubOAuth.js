@@ -87,7 +87,8 @@ export default class GithubOAuth {
         const usermeta = JSON.parse(body);
         request.session.user = {
           username: usermeta.login,
-          token: token
+          token: token,
+          github: usermeta.id
         };
         next();
       });
