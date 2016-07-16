@@ -1,0 +1,14 @@
+{
+  "apps":[
+    {
+      "script": "bin/web",
+      "watch": true,
+      "name": "ysitd-cloud-portal",
+      "ignore_watch": [
+        "storages",
+        "views",
+        "db", "assets", "public"
+      ]
+    }
+  ]
+}
