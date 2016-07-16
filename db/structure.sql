@@ -52,14 +52,36 @@ SECURITY DEFINER;
 
 CREATE TABLE IF NOT EXISTS users (
   user_id UUID NOT NULL DEFAULT uuid_generate_v4(),
+  github_id INT NOT NULL,
   user_name TEXT NOT NULL,
   display_name TEXT NOT NULL,
   email TEXT NOT NULL,
-  PRIMARY KEY (user_id)
+  PRIMARY KEY (user_id),
+  UNIQUE (user_name)
 );
 
 CREATE TRIGGER users_human_audit
 AFTER INSERT OR UPDATE OR DELETE ON users
+FOR EACH ROW EXECUTE PROCEDURE trigger_human_audit();
+
+CREATE TABLE IF NOT EXISTS roles (
+  role_id TEXT NOT NULL DEFAULT uuid_generate_v4(),
+  role_name TEXT NOT NULL,
+  PRIMARY KEY (role_id),
+  UNIQUE (role_name)
+) WITH (FILLFACTOR=80);
+
+CREATE TRIGGER roles_human_audit
+AFTER INSERT OR UPDATE OR DELETE ON roles
+FOR EACH ROW EXECUTE PROCEDURE trigger_human_audit();
+
+CREATE TABLE IF NOT EXISTS users_roles (
+  user_id UUID NOT NULL REFERENCES users(user_id),
+  role_id TEXT NOT NULL REFERENCES roles(role_id)
+) WITH (FILLFACTOR=50);
+
+CREATE TRIGGER users_roles_human_audit
+AFTER INSERT OR UPDATE OR DELETE ON users_roles
 FOR EACH ROW EXECUTE PROCEDURE trigger_human_audit();
 
 CREATE TABLE IF NOT EXISTS accounts (
@@ -79,6 +101,10 @@ COMMENT ON TABLE accounts IS 'Credit of users';
 COMMENT ON COLUMN accounts.balance IS 'Balance include not yet finished transaction';
 COMMENT ON COLUMN accounts.useable IS 'Balance after transaction and housing cleaning';
 
+CREATE TRIGGER account_human_audit
+AFTER INSERT OR UPDATE OR DELETE ON accounts
+FOR EACH ROW EXECUTE PROCEDURE trigger_human_audit();
+
 CREATE TABLE IF NOT EXISTS transactions (
   transaction_id UUID NOT NULL DEFAULT uuid_generate_v4(),
   source UUID NOT NULL REFERENCES accounts(account_id) ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -97,6 +123,10 @@ CREATE INDEX transaction_data ON transactions(source, target, amount);
 COMMENT ON TABLE transactions IS 'Data of transfer and transaction';
 COMMENT ON COLUMN transactions.occur_time IS 'Time of transfer take action';
 COMMENT ON COLUMN transactions.house_clean_time IS 'Time of transaction being house cleaning';
+
+CREATE TRIGGER transactions_human_audit
+AFTER INSERT OR UPDATE OR DELETE ON transactions
+FOR EACH ROW EXECUTE PROCEDURE trigger_human_audit();
 
 CREATE TABLE IF NOT EXISTS system_audit (
   account_id UUID NOT NULL REFERENCES accounts(account_id) ON DELETE RESTRICT,
