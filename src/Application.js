@@ -1,11 +1,12 @@
 import express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
 import serveStatic from 'serve-static';
+import LogicError from './errors/LogicError';
 import {register as registerView} from './middlewares/view';
 import {register as registerLogger} from './middlewares/logger';
 import {register as registerSession} from './middlewares/session';
+import logger from './utils/logger';
 
 const app = express();
 
@@ -25,5 +26,22 @@ app.use(serveStatic(`${__dirname}/../public`, {
 // Add Routes
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/users'));
+
+app.use(function (request, response) {
+  response.status(404);
+  response.render('errors/404', {title: 'Not Found'});
+  response.end();
+});
+
+app.use(function (err, request, response, next) {
+  response.status(err.code);
+  response.render(`errors/${err.code || 404}`, {title: err.message});
+  response.end();
+  next(err, request, response);
+});
+
+app.use(function (err, request, response, next) {
+  logger.error(err.stack);
+});
 
 module.exports = app;
