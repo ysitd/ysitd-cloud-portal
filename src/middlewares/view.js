@@ -1,7 +1,8 @@
 import {Environment, FileSystemLoader} from 'nunjucks';
-import {basename} from 'path';
+import {realpathSync as realpath} from 'fs';
 
-const env = new Environment(new FileSystemLoader(`${__dirname}/../../views`, {watch: true}));
+const source = realpath(`${__dirname}/../../views`);
+const env = new Environment(new FileSystemLoader(source, {watch: true}));
 
 env.addGlobal('nodes', [
   {id: 'hkg-1', name: 'HKG - 1'}
@@ -9,7 +10,8 @@ env.addGlobal('nodes', [
 
 function view() {
   return function (file, opts, cb) {
-    env.render(basename(file), opts, cb)
+    const filename = file.replace(source, '').replace(/^\//, '');
+    env.render(filename, opts, cb)
   };
 }
 
