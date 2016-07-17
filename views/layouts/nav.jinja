@@ -6,6 +6,19 @@
                 YSITD Cloud
             </a>
             <ul class="nav">
+                {% if session.root %}
+                    <li>
+                    <a class="waves-attach" data-toggle="collapse" href="#collapse-user">User</a>
+                    <ul class="menu-collapse collapse" id="collapse-user">
+                        <li>
+                            <a class="waves-attach" href="/user/list">List</a>
+                        </li>
+                        <li>
+                            <a class="waves-attach" href="/user/create">Create</a>
+                        </li>
+                    </ul>
+                    </li>
+                {% endif %}
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#collapse-credit">Credit</a>
                     <ul class="menu-collapse collapse" id="collapse-credit">

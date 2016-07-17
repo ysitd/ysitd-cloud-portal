@@ -6,7 +6,7 @@ const RedisStore = redis(session);
 
 const sess = session({
   cookie: {
-    secure: true
+    secure: false
   },
   secret: config('cookie_secret', 'foobar'),
   resave: false,
