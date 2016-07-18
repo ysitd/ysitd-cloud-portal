@@ -7,7 +7,7 @@
 		display: block;
 		float: left;
 		+ li:before {
-			@extend .material-icon;
+			@extend .material-icons;
 			color: $black-sec;
 			content: "chevron_right";
 			display: inline-block;
