@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(serveStatic(`${__dirname}/../public`, {
-  maxAge: 1000
+  maxAge: 1000 * 60 * 5
 }));
 
 // Add Routes

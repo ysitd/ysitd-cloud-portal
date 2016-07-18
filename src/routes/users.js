@@ -51,4 +51,8 @@ router.get('/callback', auth.callback, function (request, response, next) {
   });
 });
 
+router.get('/create', function (request, response) {
+  view(request, response, 'user/create', {title: 'Create User'});
+});
+
 module.exports = router;
