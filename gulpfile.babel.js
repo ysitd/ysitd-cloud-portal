@@ -10,6 +10,7 @@ import browserify from 'browserify';
 import streamify from 'gulp-streamify';
 import uglify from 'gulp-uglify';
 import source from 'vinyl-source-stream';
+import concat from 'gulp-concat';
 
 import imagemin from 'gulp-imagemin';
 import svgmin from 'gulp-svgmin';
@@ -38,22 +39,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  browserify({
-    entries: './assets/js/material/index.js',
-    extensions: ['.js'],
-    debug: false
-  })
-    .require('jquery', {expose: 'jQuery'})
-    .transform(babelify.configure())
-    .bundle()
-    .on('error', log)
-    .pipe(source('vendor.js'))
-    .pipe(gulp.dest(`${dest}/js`))
+  gulp.src('./assets/js/vendor/**/*.js')
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('./public/js'))
+    .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(streamify(uglify()))
-    .pipe(gulp.dest(`${dest}/js`));
+    .pipe(gulp.dest('./public/js'))
+    .on('error', log);
 
   browserify({
     entries: './assets/js/app.js',

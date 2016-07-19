@@ -4,10 +4,10 @@
 	overflow: hidden;
 	outline: 0;
 	position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	z-index: ($header-base + 1);
 }
 
@@ -18,8 +18,8 @@
 	height: 100%;
 	padding: 0 $grid-gutter;
 	position: absolute;
-		top: 0;
-		right: 0;
+	top: 0;
+	right: 0;
 	z-index: 1;
 	&:focus,
 	&:hover {
@@ -42,8 +42,8 @@
 	justify-content: center;
 	opacity: 1;
 	position: absolute;
-		top: 0;
-		left: 0;
+	top: 0;
+	left: 0;
 	transform: rotate(0);
 	width: 100%;;
 	.menu-collapse-toggle.collapsed & {
@@ -101,16 +101,16 @@
 }
 
 // colour
-	@each $color in $palette-list-class {
-		$i: index($palette-list-class, $color);
+@each $color in $palette-list-class {
+	$i: index($palette-list-class, $color);
 
-		.page-#{$color} .menu-content .nav li.active {
-			> a,
-			> .a {
-				color: nth($palette-list-color, $i);
-			}
+	.page-#{$color} .menu-content .nav li.active {
+		> a,
+		> .a {
+			color: nth($palette-list-color, $i);
 		}
 	}
+}
 
 .menu-content-inner {
 	padding-right: $grid-gutter;
@@ -122,10 +122,10 @@
 	background-color: $black;
 	opacity: 0;
 	position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	transition: opacity 0.3s $timing;
 	z-index: $header-base;
 	&.in {
@@ -170,8 +170,8 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: fixed;
-		top: 0;
-		left: 0;
+	top: 0;
+	left: 0;
 	transform: translateX(-100%);
 	transition: transform 0.3s $timing;
 	width: ($grid-gutter * 20);
@@ -180,17 +180,17 @@
 	-ms-overflow-style: none;
 	.menu-right & {
 		// position
-			right: 0;
-			left: auto;
+		right: 0;
+		left: auto;
 		transform: translateX(100%);
 	}
 	.menu.in & {
 		transform: translateX(0);
 	}
 	// 992
-		@include responsive(md) {
-			max-width: none;
-		}
+	@include responsive(md) {
+		max-width: none;
+	}
 }
 
 .menu-top {
@@ -213,8 +213,8 @@
 	justify-content: center;
 	overflow: hidden;
 	position: absolute;
-		top: 0;
-		left: 0;
+	top: 0;
+	left: 0;
 	width: 100%;
 	img {
 		min-height: 100%;
@@ -227,10 +227,10 @@
 	padding: $margin-sm $grid-gutter;
 	position: relative;
 	// 768
-		@include responsive(sm) {
-			padding-top: $margin-md;
-			padding-bottom: $margin-md;
-		}
+	@include responsive(sm) {
+		padding-top: $margin-md;
+		padding-bottom: $margin-md;
+	}
 }
 
 .menu-top-info-sub {
@@ -238,9 +238,9 @@
 	padding: $margin-sm $grid-gutter;
 	position: relative;
 	// 768
-		@include responsive(sm) {
-			padding-top: $margin-md;
-		}
+	@include responsive(sm) {
+		padding-top: $margin-md;
+	}
 }
 
 .menu-top-user {
@@ -253,15 +253,15 @@
 
 .nav-drawer {
 	// 992
-		@include responsive(md) {
-			&.nav-drawer-md {
-				@include nav-drawer()
-			}
+	@include responsive(md) {
+		&.nav-drawer-md {
+			@include nav-drawer()
 		}
+	}
 	// 1440
-		@include responsive(lg) {
-			&.nav-drawer-lg {
-				@include nav-drawer();
-			}
+	@include responsive(lg) {
+		&.nav-drawer-lg {
+			@include nav-drawer();
 		}
+	}
 }

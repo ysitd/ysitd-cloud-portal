@@ -298,39 +298,39 @@
 	$white-text-solid:             #ffffff;
 
 // offwhite
-	$offwhite:                     rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.18);
-	$offwhite-dark:                rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.36);
-	$offwhite-light:               rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.09);
+	$offwhite:                     rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.18) !default;
+	$offwhite-dark:                rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.36) !default;
+	$offwhite-light:               rgba(red($black-hint-solid), green($black-hint-solid), blue($black-hint-solid), 0.09) !default;
 
-	$offwhite-solid:               $palette-grey-100;
-	$offwhite-solid-dark:          $palette-grey-200;
-	$offwhite-solid-light:         $palette-grey-050;
+	$offwhite-solid:               $palette-grey-100 !default;
+	$offwhite-solid-dark:          $palette-grey-200 !default;
+	$offwhite-solid-light:         $palette-grey-050 !default;
 
 // palettes
-	$brand-color: #44A148;
-	$brand-color-dark: #028042;
-	$brand-color-light: lighten($brand-color, 20%);
+	$brand-color: #44A148 !default;
+	$brand-color-dark: #028042 !default;
+	$brand-color-light: lighten($brand-color, 20%) !default;
 
-	$brand-color-accent:           $palette-indigo-a200;
-	$brand-color-accent-dark:      $palette-indigo-a400;
-	$brand-color-accent-light:     $palette-indigo-a100;
+	$brand-color-accent:           $palette-indigo-a200 !default;
+	$brand-color-accent-dark:      $palette-indigo-a400 !default;
+	$brand-color-accent-light:     $palette-indigo-a100 !default;
 
-	$brand-text:                   $white-text;
-	$brand-text-dark:              $white-text;
-	$brand-text-light:             $black-text;
+	$brand-text:                   $white-text !default;
+	$brand-text-dark:              $white-text !default;
+	$brand-text-light:             $black-text !default;
 
-	$brand-text-accent:            $white-text;
-	$brand-text-accent-dark:       $white-text;
-	$brand-text-accent-light:      $black-text;
+	$brand-text-accent:            $white-text !default;
+	$brand-text-accent-dark:       $white-text !default;
+	$brand-text-accent-light:      $black-text !default;
 
-	$palette-list-class:           "brand",            "brand-accent",            "green",            "orange",            "red";
-	$palette-list-color:           $brand-color,       $brand-color-accent,       $palette-green-500, $palette-orange-500, $palette-red-500;
-	$palette-list-dark:            $brand-color-dark,  $brand-color-accent-dark,  $palette-green-700, $palette-orange-700, $palette-red-700;
-	$palette-list-light:           $brand-color-light, $brand-color-accent-light, $palette-green-300, $palette-orange-300, $palette-red-300;
-	$palette-list-text:            $brand-text,        $brand-text-accent,        $black-text,        $black-text,         $white-text;
-	$palette-list-text-dark:       $brand-text-dark,   $brand-text-accent-dark,   $white-text,        $black-text,         $white-text;
-	$palette-list-text-light:      $brand-text-light,  $brand-text-accent-light,  $black-text,        $black-text,         $black-text;
+	$palette-list-class:           "brand",            "brand-accent",            "green",            "orange",            "red" !default;
+	$palette-list-color:           $brand-color,       $brand-color-accent,       $palette-green-500, $palette-orange-500, $palette-red-500 !default;
+	$palette-list-dark:            $brand-color-dark,  $brand-color-accent-dark,  $palette-green-700, $palette-orange-700, $palette-red-700 !default;
+	$palette-list-light:           $brand-color-light, $brand-color-accent-light, $palette-green-300, $palette-orange-300, $palette-red-300 !default;
+	$palette-list-text:            $brand-text,        $brand-text-accent,        $black-text,        $black-text,         $white-text !default;
+	$palette-list-text-dark:       $brand-text-dark,   $brand-text-accent-dark,   $white-text,        $black-text,         $white-text !default;
+	$palette-list-text-light:      $brand-text-light,  $brand-text-accent-light,  $black-text,        $black-text,         $black-text !default;
 
 // utilities
-	$link-color:                   $brand-color-accent;
-	$link-color-hover:             $brand-color-accent-dark;
+	$link-color:                   $brand-color-accent !default;
+	$link-color-hover:             $brand-color-accent-dark !default;
