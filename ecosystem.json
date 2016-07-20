@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "ysitd-cloud-portal-gulp",
+      "script": "node_modules/gulp/bin/gulp.js",
+      "args": "--color --gulpfile ./gulpfile.babel.js dev",
+      "cwd": "."
+    }
+  ]
+}

@@ -1,56 +1,30 @@
 {
-  "name": "ysitd-portal",
-  "version": "0.0.0",
-  "scripts": {
-    "web": "node ./bin/web",
-    "cluster": "pm2 start app.json",
-    "dev": "pm2 start app.json"
-  },
-  "dependencies": {
-    "babel-core": "^6.10.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "connect-redis": "^3.1.0",
-    "dotenv": "^2.0.0",
-    "express": "^4.13.4",
-    "express-session": "^1.14.0",
-    "fivebeans": "^1.4.1",
-    "morgan": "^1.7.0",
-    "multer": "^1.1.0",
-    "nunjucks": "^2.4.2",
-    "pg": "^6.0.2",
-    "pm2": "^1.1.3",
-    "redis": "^2.6.2",
-    "request": "^2.73.0",
-    "serve-static": "^1.11.1",
-    "winston": "^2.2.0"
-  },
+  "private": true,
   "devDependencies": {
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "classnames": "^2.2.5",
-    "gulp": "^3.9.1",
+    "gulp": "^3.8.8",
     "gulp-clean-css": "^2.0.11",
-    "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-jsonminify": "^1.0.0",
+    "gulp-imagemin": "^3.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-streamify": "^1.0.2",
-    "gulp-svgmin": "^1.2.2",
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.7",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "textarea-autosize": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "laravel-elixir": "^4.0.0",
+    "bootstrap-sass": "^3.0.0"
   },
   "babel": {
     "presets": [
-      "es2015",
-      "react"
+      "react",
+      "es2015"
     ]
   }
 }

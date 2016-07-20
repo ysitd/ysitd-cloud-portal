@@ -1,7 +1,9 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+composer.lock
+
 /.idea
 *.iml
-
-node_modules
-.npm
-
-.env

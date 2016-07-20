@@ -1,99 +1,31 @@
-import gulp from 'gulp';
-import {log} from 'gulp-util';
-import rename from 'gulp-rename';
+import elixir, {config} from 'laravel-elixir';
+config.json = {
+  folder: 'json',
+  outputFolder: 'json'
+};
 
-import sass from 'gulp-sass';
-import cleanCss from 'gulp-clean-css';
+config.images = {
+  folder: 'images',
+  outputFolder: 'images'
+};
 
-import babelify from 'babelify';
-import browserify from 'browserify';
-import streamify from 'gulp-streamify';
-import uglify from 'gulp-uglify';
-import source from 'vinyl-source-stream';
-import concat from 'gulp-concat';
+import './resources/gulp';
 
-import imagemin from 'gulp-imagemin';
-import svgmin from 'gulp-svgmin';
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
 
-import jsonminify from 'gulp-jsonminify';
-
-const src = './assets';
-const dest = './public';
-
-gulp.task('json', function() {
-  gulp.src(`${src}/json/**/*.json`)
-    .pipe(jsonminify())
-    .pipe(gulp.dest(`${dest}/json`));
+elixir(function(mix) {
+  mix.css('portal.css');
+  mix.js();
+  mix.image();
+  mix.copy(config.get('assets.json.folder'), config.get('assets.json.outputFolder'));
+  mix.monitor();
 });
-
-gulp.task('css', function() {
-  gulp.src(`${src}/scss/**/*.scss`)
-    .pipe(sass())
-    .on('error', log)
-    .pipe(gulp.dest(`${dest}/css`))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(cleanCss())
-    .pipe(gulp.dest(`${dest}/css`));
-});
-
-gulp.task('js', function() {
-  gulp.src('./assets/js/vendor/**/*.js')
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./public/js'))
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./public/js'))
-    .on('error', log);
-
-  browserify({
-    entries: './assets/js/app.js',
-    extensions: ['.js'],
-    debug: true
-  })
-    .require('react', {expose: 'React'})
-    .require('react-dom', {expose: 'ReactDOM'})
-    .require('classnames', {expose: 'classNames'})
-    .transform(babelify.configure())
-    .bundle()
-    .on('error', log)
-    .pipe(source('app.js'))
-    .pipe(gulp.dest(`${dest}/js`))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(streamify(uglify()))
-    .pipe(gulp.dest(`${dest}/js`));
-});
-
-gulp.task('images', function () {
-  gulp.src(`${src}/images/**/*.*`)
-    .pipe(imagemin())
-    .on('error', log)
-    .pipe(gulp.dest(`${dest}/images`));
-});
-
-gulp.task('watch', function () {
-  gulp.watch([
-    `${src}/js/**/*.js`
-  ], ['js']);
-
-  gulp.watch([
-    `${src}/scss/**/*.scss`
-  ], ['css']);
-
-  gulp.watch([
-    `${src}/images/**/*.*`
-  ], ['images']);
-
-  gulp.watch([
-    `${src}/json/**/*.json`
-  ], ['json']);
-});
-
-gulp.task('build', ['js', 'css', 'images', 'json']);
-
-gulp.task('dev', ['build', 'watch']);
