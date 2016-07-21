@@ -5,7 +5,9 @@ import browserify from 'browserify';
 import babelify from 'babelify';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
+import concat from 'gulp-concat';
 import streamify from 'gulp-streamify';
+
 import source from 'vinyl-source-stream';
 import {gulpPaths} from './utils';
 
@@ -16,6 +18,14 @@ Elxir.extend('js', function (src, output) {
     'public.js.outputFolder', output || 'app.js');
   const dest = path.output.baseDir;
   new Task('js', function () {
+    gulp.src(`${path.src.baseDir}/vendor/**/*.js`)
+      .pipe(concat('vendor.js'))
+      .pipe(gulp.dest(dest))
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(uglify())
+      .pipe(gulp.dest(dest));
     browserify({
         entries: path.src.path,
         extensions: ['.js'],
