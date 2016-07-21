@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -11,8 +12,12 @@ class HomeController extends Controller
         return view('welcome', ['title' => 'Dashboard']);
     }
 
-    public function playView($view)
+    public function playView($view, Filesystem $file)
     {
+        $path = base_path("view/{$view}.blade.php");
+        if (!$file->exists($path)) {
+            abort(404);
+        }
         $title = $view;
         $title = str_replace('/', ' ', $title);
         $title = trim($title);

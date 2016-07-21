@@ -29,7 +29,6 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
@@ -94,7 +93,7 @@ class AuthController extends Controller
                 ->where('user_name', $data->getName())
                 ->findOrFail();
             $auth->login($user);
-            return redirect('/');
+            return redirect()->route('home');
         } catch (ModelNotFoundException $e) {
             return redirect('https://ysitd.io/');
         }
@@ -102,11 +101,11 @@ class AuthController extends Controller
 
     public function signin(Guard $auth)
     {
-        if (env('APP_ENV') == 'dev') {
+        if (env('APP_ENV') === 'dev') {
             $auth->loginUsingId('00000000-0000-0000-0000-000000000000');
-            return redirect('/');
+            return redirect()->route('home');
         } else {
-            return redirect('auth/github');
+            return redirect()->route('auth.github.oauth');
         }
     }
 
