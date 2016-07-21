@@ -15,7 +15,7 @@
                         <ul class="menu-collapse collapse" id="collapse-user">
                             <li>
                                 <a class="waves-attach" href="/user/list">
-                                    <span class="material-icons material-icons-lg margin-right-sm">apps</span>
+                                    <span class="material-icons material-icons-lg margin-right-sm">view_list</span>
                                     List
                                 </a>
                             </li>
@@ -28,6 +28,34 @@
                         </ul>
                     </li>
                 @endif
+                <li>
+                    <a href="#collapse-market" data-toggle="collapse"  class="waves-attach">
+                        <span class="material-icons material-icons-lg margin-right-sm">shop_two</span>
+                        Market
+                    </a>
+                    <ul class="menu-collapse collapse" id="collapse-market">
+                        <li>
+                            <a class="waves-attach" href="/market/all">
+                                <span class="material-icons material-icons-lg margin-right-sm">shopping_basket</span>
+                                View All
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="waves-attach" href="/market/hosting">
+                                <span class="material-icons material-icons-lg margin-right-sm">web</span>
+                                Hosting
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="waves-attach" href="/market/manage">
+                                <span class="material-icons material-icons-lg margin-right-sm">assignment</span>
+                                Management
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#collapse-credit">
                         <span class="material-icons material-icons-lg margin-right-sm">account_balance</span>
