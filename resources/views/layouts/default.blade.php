@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-@section('title', $title)
+@section('title', isset($title) ? $title : 'Dashboard')
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="container">
-        @section('content')@endsection
+        @section('content')@show
     </div>
 </main>
 @include('layouts/footer')

@@ -6,22 +6,22 @@
                 YSITD Cloud
             </a>
             <ul class="nav">
-                @if(Session::get('root'))
+                @if($user->root)
                     <li>
                         <a class="waves-attach" data-toggle="collapse" href="#collapse-user">
-                            <span class="fa fa-users fa-fw"></span>
+                            <span class="fa fa-users fa-fw margin-right-sm"></span>
                             User
                         </a>
                         <ul class="menu-collapse collapse" id="collapse-user">
                             <li>
                                 <a class="waves-attach" href="/user/list">
-                                    <span class="material-icons material-icons-lg">apps</span>
+                                    <span class="material-icons material-icons-lg margin-right-sm">apps</span>
                                     List
                                 </a>
                             </li>
                             <li>
                                 <a class="waves-attach" href="/user/create">
-                                    <span class="fa fa-user-plus fa-fw"></span>
+                                    <span class="fa fa-user-plus fa-fw margin-right-sm"></span>
                                     Create
                                 </a>
                             </li>
@@ -30,20 +30,20 @@
                 @endif
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#collapse-credit">
-                        <span class="material-icons material-icons-lg">account_balance</span>
+                        <span class="material-icons material-icons-lg margin-right-sm">account_balance</span>
                         Credit
                     </a>
                     <ul class="menu-collapse collapse" id="collapse-credit">
                         <li>
                             <a class="waves-attach" href="/credit/balance">
-                                <span class="fa fa-gbp fa-fw"></span>
+                                <span class="fa fa-gbp fa-fw margin-right-sm"></span>
                                 Balance
                             </a>
                         </li>
 
                         <li>
                             <a class="waves-attach" href="/credit/exchange">
-                                <span class="material-icons material-icons-lg">autorenew</span>
+                                <span class="material-icons material-icons-lg margin-right-sm">autorenew</span>
                                 Exchange
                             </a>
                         </li>
@@ -51,22 +51,17 @@
                 </li>
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#collapse-health">
-                        <span class="fa fa-heartbeat fa-fw"></span>
+                        <span class="fa fa-heartbeat fa-fw margin-right-sm"></span>
                         Service Health
                     </a>
                     <ul class="menu-collapse collapse" id="collapse-health">
                         <li>
                             <a class="waves-attach" href="/health">
-                                <span class="fa fa-server fa-fw"></span>
+                                <span class="fa fa-server fa-fw margin-right-sm"></span>
                                 Overview
                             </a>
                         </li>
 
-                        @foreach($nodes as $node)
-                        <li>
-                            <a class="waves-attach" href="/health/{{$node->id}}">{{ strtoupper($node->name) }}</a>
-                        </li>
-                        @endforeach
                     </ul>
                 </li>
             </ul>
