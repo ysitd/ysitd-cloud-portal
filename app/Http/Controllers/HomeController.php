@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function playView($view, Filesystem $file)
     {
-        $path = base_path("view/{$view}.blade.php");
+        $path = base_path("resources/views/{$view}.blade.php");
         if (!$file->exists($path)) {
             abort(404);
         }
