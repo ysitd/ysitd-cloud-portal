@@ -4216,13 +4216,10 @@ input[type="radio"]:checked + .switch-toggle-red:active:after {
       width: 240px; } }
 
 .ui-banner {
-  background-position: 90% 10%;
-  background-repeat: no-repeat;
   background-size: 50%;
   margin-bottom: -58px;
   padding-top: 68px;
-  padding-bottom: 58px;
-  background-image: url(../images/cloud.svg); }
+  padding-bottom: 58px; }
 
 .text-strong {
   font-size: 1.3em;

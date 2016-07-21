@@ -17,7 +17,7 @@
             <a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
                 <span class="access-hide">User</span>
                 <span class="avatar avatar-sm">
-                    <img alt="" src="{{Session::get('user')['logo']}}" class="user-logo">
+                    <img alt="User Icon" src="{{$user->logo or '/images/user.png'}}" class="user-logo">
                 </span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
