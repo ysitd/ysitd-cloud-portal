@@ -100,4 +100,14 @@ class AuthController extends Controller
         }
     }
 
+    public function signin(Guard $auth)
+    {
+        if (env('APP_ENV') == 'dev') {
+            $auth->loginUsingId('00000000-0000-0000-0000-000000000000');
+            return redirect('/');
+        } else {
+            return redirect('auth/github');
+        }
+    }
+
 }

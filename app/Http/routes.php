@@ -11,18 +11,26 @@
 |
 */
 
-Route::get('auth/signin', function (\Illuminate\Contracts\Auth\Guard $auth) {
-    if (env('APP_ENV') == 'dev') {
-        $auth->loginById('00000000-0000-0000-0000-000000000000');
-        return redirect('/');
-    } else {
-        return redirect('auth/github');
-    }
-});
+Route::get('auth/signin', [
+    'as' => 'auth.signin',
+    'uses' => 'Auth\AuthController@signin'
+]);
 
-Route::get('auth/github', 'Auth\AuthController@githubRedirect');
-Route::get('auth/github/callback', 'Auth\AuthController@githubCallback');
+Route::get('auth/github', [
+    'as' => 'auth.github.oauth',
+    'uses' => 'Auth\AuthController@githubRedirect'
+]);
+Route::get('auth/github/callback', [
+    'as' => 'auth.github.callback',
+    'uses' => 'Auth\AuthController@githubCallback'
+]);
 
-Route::get('/', function () {
-    return view('welcome', ['title' => 'Dashboard', 'nodes' => []]);
-});
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HomeController@home'
+]);
+
+Route::get('/{view}', [
+    'as' => 'view',
+    'uses' => 'HomeController@playView'
+])->where('view', '.+');
