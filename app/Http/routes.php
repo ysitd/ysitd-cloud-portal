@@ -11,26 +11,30 @@
 |
 */
 
-Route::get('auth/signin', [
-    'as' => 'auth.signin',
-    'uses' => 'Auth\AuthController@signin'
-]);
+Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 
-Route::get('auth/github', [
-    'as' => 'auth.github.oauth',
-    'uses' => 'Auth\AuthController@githubRedirect'
-]);
-Route::get('auth/github/callback', [
-    'as' => 'auth.github.callback',
-    'uses' => 'Auth\AuthController@githubCallback'
-]);
+    Route::get('signin', [
+        'as' => 'auth.signin',
+        'uses' => 'AuthController@signin'
+    ]);
+
+    Route::get('github', [
+        'as' => 'auth.github.oauth',
+        'uses' => 'AuthController@githubRedirect'
+    ]);
+    Route::get('github/callback', [
+        'as' => 'auth.github.callback',
+        'uses' => 'AuthController@githubCallback'
+    ]);
+
+});
 
 Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@home'
 ]);
 
-Route::get('/{view}', [
+Route::get('{view}', [
     'as' => 'view',
     'uses' => 'HomeController@playView'
 ])->where('view', '.+');
