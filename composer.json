@@ -1,12 +1,13 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "ysitd/portal",
+    "description": "The YSITD Cloud Portal",
+    "keywords": ["application", "cloud", "portal"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
+        "laravel/socialite": "~2.0",
         "predis/predis": "^1.1"
     },
     "require-dev": {

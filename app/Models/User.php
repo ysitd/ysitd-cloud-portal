@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -36,4 +36,12 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    protected $primaryKey = 'user_id';
+    public $incrementing = false;
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_role');
+    }
 }

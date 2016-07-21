@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
-                    <h1 class="content-heading">{{$title}}</h1>
+                    <h1 class="content-heading">@yield('title')</h1>
                 </div>
             </div>
         </div>

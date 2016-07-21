@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
+use App\Models\User;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
@@ -20,8 +21,6 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Create a new authentication controller instance.
@@ -62,4 +61,43 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Route for github oauth
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function githubRedirect()
+    {
+        return Socialite::driver('github')
+            ->with(['allow_signup' => false])
+            ->redirect();
+    }
+
+    /**
+     * Callback route for Github oauth
+     *
+     * @param Guard $auth
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function githubCallback(Guard $auth)
+    {
+        try {
+            $data = Socialite::driver('github')->user();
+        } catch (\Exception $e) {
+            return redirect('auth/github');
+        }
+
+        try {
+            $user = User::where('github_id', $data->getId())
+                ->where('user_name', $data->getName())
+                ->findOrFail();
+            $auth->login($user);
+            return redirect('/');
+        } catch (ModelNotFoundException $e) {
+            return redirect('https://ysitd.io/');
+        }
+    }
+
 }
