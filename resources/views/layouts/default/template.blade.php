@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en-GB">
 @section('title', isset($title) ? $title : 'Dashboard')
 <head>
     <meta charset="UTF-8">
@@ -17,8 +17,8 @@
 </head>
 
 <body class="page-brand">
-@include('layouts/nav')
-@include('layouts/header')
+@include('layouts/default/nav')
+@include('layouts/default/header')
 <main class="content">
     <div class="content-header ui-banner">
         <div class="container">
@@ -33,7 +33,7 @@
         @section('content')@show
     </div>
 </main>
-@include('layouts/footer')
+@include('layouts/default/footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min.js"></script>

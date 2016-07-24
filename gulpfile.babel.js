@@ -23,7 +23,6 @@ import './resources/gulp';
  */
 
 elixir(function(mix) {
-  mix.css('portal.css');
   mix.js();
   mix.image();
   mix.copy(config.get('assets.json.folder'), config.get('public.json.outputFolder'));

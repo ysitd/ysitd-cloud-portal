@@ -1,0 +1,5 @@
+.default-nav {
+  .nav a {
+    @extend .box;
+  }
+}

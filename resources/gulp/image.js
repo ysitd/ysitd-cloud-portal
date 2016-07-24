@@ -7,6 +7,7 @@ Elxir.extend('image', function () {
   new Task('image', function () {
     gulp.src(`${config.get('assets.images.folder')}/**/*.*`)
       .pipe(imagemin())
+      .on('error', log)
       .pipe(gulp.dest(config.get('public.images.outputFolder')));
   });
 });

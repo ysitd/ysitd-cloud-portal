@@ -1,0 +1,22 @@
+.doc-header {
+  box-shadow: 0 0   4px rgba(0, 0, 0, 0.14),
+              0 4px 8px rgba(0, 0, 0, 0.28);
+  width: 100%;
+  z-index: 10000;
+
+  .nav-wrapper {
+    left: 0;
+    position: absolute;
+    top: 48px;
+    display: inline-block;
+    flex: 1 1 0;
+    overflow-y: auto;
+    vertical-align: top;
+    transition: -ms-flex .2s,margin .2s,width .2s;
+    transition: flex .2s,margin .2s,width .2s;
+    &:not(:empty) {
+      margin-left: 0;
+      width: calc(100% - 230px);
+    }
+  }
+}

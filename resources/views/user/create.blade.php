@@ -1,4 +1,4 @@
-@extends('layouts/default')
+@extends('layouts/default/template')
 
 @section('content')
 <div class="row">

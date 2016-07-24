@@ -1,4 +1,4 @@
-<nav id="ui_menu" class="menu menu-left nav-drawer nav-drawer-md">
+<nav id="ui_menu" class="menu menu-left nav-drawer nav-drawer-md default-nav">
     <div class="menu-scroll">
         <div class="menu-content">
             <a class="menu-logo" href="/">
@@ -14,13 +14,13 @@
                         </a>
                         <ul class="menu-collapse collapse" id="collapse-user">
                             <li>
-                                <a class="waves-attach" href="/user/list">
+                                <a class="waves-attach box" href="/user/list">
                                     <span class="material-icons material-icons-lg margin-right-sm">view_list</span>
                                     List
                                 </a>
                             </li>
                             <li>
-                                <a class="waves-attach" href="/user/create">
+                                <a class="waves-attach box" href="/user/create">
                                     <span class="fa fa-user-plus fa-fw margin-right-sm"></span>
                                     Create
                                 </a>
@@ -78,15 +78,22 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="waves-attach" data-toggle="collapse" href="#collapse-health">
-                        <span class="fa fa-heartbeat fa-fw margin-right-sm"></span>
-                        Service Health
+                    <a class="waves-attach" data-toggle="collapse" href="#collapse-doc">
+                        <span class="material-icons material-icons-lg margin-right-sm">description</span>
+                        Documentation
                     </a>
-                    <ul class="menu-collapse collapse" id="collapse-health">
+                    <ul class="menu-collapse collapse" id="collapse-doc">
                         <li>
-                            <a class="waves-attach" href="/health">
-                                <span class="fa fa-server fa-fw margin-right-sm"></span>
-                                Overview
+                            <a class="waves-attach" href="/doc/vm">
+                                <span class="material-icons material-icons-lg margin-right-sm">computer</span>
+                                Virtual Mechine
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="waves-attach" href="/doc/service">
+                                <span class="material-icons material-icons-lg margin-right-sm">adb</span>
+                                Service
                             </a>
                         </li>
 
