@@ -29,6 +29,8 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 
 });
 
+Route::resource('issue', 'IssueController');
+
 Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@home'
