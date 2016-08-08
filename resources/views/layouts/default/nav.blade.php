@@ -57,25 +57,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="waves-attach" data-toggle="collapse" href="#collapse-credit">
-                        <span class="material-icons material-icons-lg margin-right-sm">account_balance</span>
-                        Credit
+                    <a class="waves-attach" href="/issue">
+                        <span class="material-icons material-icons-lg margin-right-sm">error_outline</span>
+                        Issue
                     </a>
-                    <ul class="menu-collapse collapse" id="collapse-credit">
-                        <li>
-                            <a class="waves-attach" href="/credit/balance">
-                                <span class="fa fa-gbp fa-fw margin-right-sm"></span>
-                                Balance
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="waves-attach" href="/credit/exchange">
-                                <span class="material-icons material-icons-lg margin-right-sm">autorenew</span>
-                                Exchange
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#collapse-doc">

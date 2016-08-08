@@ -36,8 +36,11 @@ export default class Form extends Component {
       })
     }
 
+    const props = Object.assign({}, this.props);
+    delete props.json;
+
     return (
-      <div className={classes} {...this.props}>
+      <div className={classes} {...props}>
         <div className="el-loading-indicator">
           <div className="progress progress-position-absolute-top">
             <div className="progress-bar-indeterminate" />

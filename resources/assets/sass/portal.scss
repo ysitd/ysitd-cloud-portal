@@ -3,9 +3,12 @@
 @import "variables";
 
 @import "all";
-@import "nav";
-@import "header";
-@import "text";
-@import "footer";
 
-@import "doc";
+@import "layouts/nav";
+@import "layouts/header";
+@import "layouts/text";
+@import "layouts/footer";
+
+@import "components/pagination";
+@import "components/shadow";
+@import "components/tile";

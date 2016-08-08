@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Title",
+    "type": "text",
+    "color": "brand"
+  },
+  {
+    "label": "Service",
+    "type": "text",
+    "color": "accent"
+  },
+  {
+    "label": "Issue Type",
+    "type": "text",
+    "color": "accent"
+  },
+  {
+    "label": "Detail",
+    "type": "block",
+    "color": "brand"
+  }
+]

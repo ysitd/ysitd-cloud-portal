@@ -16,24 +16,39 @@ export default class FormField extends Component {
   }
 
   render() {
-    const id = this.props.label.replace(/\s+/, '-');
+    const id = this.props.label.replace(/\s+/, '_').toLowerCase();
     const {color} = this.props;
     const type = this.props.type in InputTypeMap ? InputTypeMap[this.props.type] : this.props.type;
-    const selection = type === 'boolean';
+    const checkbox = type === 'boolean';
     const classes = classNames(this.props.className, 'form-group', {
-      'form-group-label': !selection,
+      'form-group-label': !checkbox,
       'control-highlight': !!this.props.value
     }, `form-group-${color === 'accent' ? 'brand-accent' : color}`);
 
+    let method;
+    switch (type) {
+      case 'boolean':
+        method = 'Boolean';
+        break;
+      case 'enum':
+        method = 'Selection';
+        break;
+      case 'block':
+        method = 'Block';
+        break;
+      default:
+        method = 'Input';
+    }
+    method = `render${method}`;
 
     return (
       <div className={classes} {...this.props}>
-        {selection ? this.renderSelection({id}) : this.renderInput({id, type})}
+        {this[method]({id, type}, this.props)}
       </div>
     );
   }
 
-  renderSelection({id}) {
+  renderBoolean({id}) {
     return (
       <div className="checkbox switch">
         <label htmlFor={id}>
@@ -46,6 +61,17 @@ export default class FormField extends Component {
           <span className="switch-toggle"/>
           {this.props.label}
         </label>
+      </div>
+    )
+  }
+
+  renderBlock({id}) {
+    return (
+      <div>
+        <label className="floating-label" htmlFor={id}>
+          {this.props.label}
+        </label>
+        <textarea className="form-control textarea-autosize" id={id} name={id} rows="1" />
       </div>
     )
   }

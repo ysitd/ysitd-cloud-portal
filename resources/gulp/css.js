@@ -1,4 +1,4 @@
-import Elxir, {Task, Notification, config} from 'laravel-elixir';
+import {Notification, config} from 'laravel-elixir';
 import gulp from 'gulp';
 import {log} from 'gulp-util';
 import sass from 'gulp-sass';

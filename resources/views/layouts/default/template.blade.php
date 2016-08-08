@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="container">
-        @section('content')@show
+        @yield('content')
     </div>
 </main>
 @include('layouts/default/footer')
@@ -40,7 +40,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/dedupe.min.js"></script>
 <script src="/js/vendor.min.js"></script>
 <script src="/js/app.min.js"></script>
-@section('scripts')@endsection
+@yield('scripts')
 </body>
 
 </html>
