@@ -16,7 +16,7 @@ class CreateIssuesTable extends Migration
             $table->increments('id');
             $table->text('title')->index();
             $table->uuid('owner')->index();
-            $table->uuid('assign')->index();
+            $table->uuid('assign')->index()->nullable();
             $table->text('service');
             $table->text('category');
             $table->text('detail');
