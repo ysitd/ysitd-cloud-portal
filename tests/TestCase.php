@@ -30,7 +30,7 @@ class TestCase extends BaseTestCase
     {
         $this->see('User');
         $this->see('Market');
-        $this->see('Credit');
+        $this->see('Issue');
         $this->see('Documentation');
     }
 

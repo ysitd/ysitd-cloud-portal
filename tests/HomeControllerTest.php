@@ -3,6 +3,7 @@
 namespace Test;
 
 use App\Models\User;
+use Ramsey\Uuid\Uuid;
 use TestCase;
 
 class HomeControllerTest extends TestCase
@@ -12,7 +13,7 @@ class HomeControllerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->user = User::find('00000000-0000-0000-0000-000000000000');
+        $this->user = User::find(Uuid::NIL);
     }
 
     public function testHomePage()
