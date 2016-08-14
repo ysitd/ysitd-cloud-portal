@@ -2045,15 +2045,17 @@ header {
   padding-left: 300px; }
 
 .page-title {
-  font-size: 48px; }
+  font-size: 37px; }
 
 body {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-height: 100vh; }
 
 main {
   flex: 1 0 auto;
-  padding-left: 300px; }
+  padding-left: 300px;
+  margin-top: 20px; }
 
 html {
   box-sizing: border-box; }
@@ -6466,6 +6468,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 form .row:first-child {
   padding-bottom: 30px; }
 
+.card .card-content > div.card-title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.card .card-content .card-title + div {
+  margin-top: 10px; }
+
 .material-icons {
   display: inline-block;
   font-family: 'Material Icons';
@@ -6511,6 +6519,9 @@ form .row:first-child {
 
 .text-upper {
   text-transform: uppercase; }
+
+.text-gray {
+  color: #646464; }
 
 .ui-banner {
   background-size: 50%;

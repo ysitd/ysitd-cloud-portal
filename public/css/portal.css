@@ -4889,15 +4889,17 @@ header {
   padding-left: 300px; }
 
 .page-title {
-  font-size: 48px; }
+  font-size: 37px; }
 
 body {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-height: 100vh; }
 
 main {
   flex: 1 0 auto;
-  padding-left: 300px; }
+  padding-left: 300px;
+  margin-top: 20px; }
 
 nav .dropdown-button {
   padding: 15px; }
@@ -4929,6 +4931,9 @@ nav .dropdown-button {
 
 .text-upper {
   text-transform: uppercase; }
+
+.text-gray {
+  color: #646464; }
 
 footer {
   padding-left: 300px;

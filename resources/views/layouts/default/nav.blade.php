@@ -1,10 +1,10 @@
 <div class="container">
-    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+    <a href="#" data-activates="side-nav" class="button-collapse top-nav full hide-on-large-only">
         <i class="material-icons">menu</i>
     </a>
 </div>
 
-<ul class="side-nav fixed">
+<ul id="side-nav" class="side-nav fixed">
     <li class="logo">
         <a href="{{ route('home') }}" class="brand-logo">
             <img src="{{ url('images/logo.jpg') }}">
