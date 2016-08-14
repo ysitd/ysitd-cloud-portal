@@ -22,9 +22,17 @@
 @include('layouts/default/header')
 @include('layouts/default/nav')
 </header>
-@yield('content')
+<main>
+    <div class="container">
+    @yield('content')
+    </div>
+</main>
 @include('layouts/default/footer')
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/dedupe.min.js"></script>
+<script defer src="{{ url('/js/app.min.js') }}"></script>
 </body>
 </html>

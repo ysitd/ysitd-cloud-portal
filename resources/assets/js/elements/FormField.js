@@ -17,13 +17,12 @@ export default class FormField extends Component {
 
   render() {
     const id = this.props.label.replace(/\s+/, '_').toLowerCase();
-    const {color} = this.props;
     const type = this.props.type in InputTypeMap ? InputTypeMap[this.props.type] : this.props.type;
     const checkbox = type === 'boolean';
-    const classes = classNames(this.props.className, 'form-group', {
+    const classes = classNames(this.props.className, 'input-field col s12', {
       'form-group-label': !checkbox,
-      'control-highlight': !!this.props.value
-    }, `form-group-${color === 'accent' ? 'brand-accent' : color}`);
+      'control-highlight': !!this.props.value,
+    });
 
     let method;
     switch (type) {
@@ -50,15 +49,14 @@ export default class FormField extends Component {
 
   renderBoolean({id}) {
     return (
-      <div className="checkbox switch">
+      <div className="switch">
         <label htmlFor={id}>
           <input
-            className="access-hide"
             id={id}
             name={id}
             type="checkbox"
           />
-          <span className="switch-toggle"/>
+          <span className="lever"/>
           {this.props.label}
         </label>
       </div>
@@ -68,10 +66,10 @@ export default class FormField extends Component {
   renderBlock({id}) {
     return (
       <div>
-        <label className="floating-label" htmlFor={id}>
+        <label htmlFor={id}>
           {this.props.label}
         </label>
-        <textarea className="form-control textarea-autosize" id={id} name={id} rows="1" />
+        <textarea className="materialize-textarea" id={id} name={id} rows="1" />
       </div>
     )
   }
@@ -79,16 +77,16 @@ export default class FormField extends Component {
   renderInput({id, type}) {
     return (
       <div>
-        <label className="floating-label" htmlFor={id}>
-          {this.props.label}
-        </label>
         <input
-          className="form-control"
+          className="validate"
           id={id}
           type={type}
           name={id}
           required={this.props.required !== false}
         />
+        <label htmlFor={id}>
+          {this.props.label}
+        </label>
       </div>
     );
   }

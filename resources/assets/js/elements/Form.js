@@ -18,8 +18,8 @@ export default class Form extends Component {
       return null;
     }
 
-    const classes = classNames(this.props.className, 'el-loading', {
-      'el-loading-done': this.state.load
+    const classes = classNames(this.props.className, 'loader', {
+      'loading-done': this.state.load
     });
 
     const element = [];
@@ -41,14 +41,13 @@ export default class Form extends Component {
 
     return (
       <div className={classes} {...props}>
-        <div className="el-loading-indicator">
-          <div className="progress progress-position-absolute-top">
-            <div className="progress-bar-indeterminate" />
+        <div className="loading">
+          <div className="progress">
+            <div className="indeterminate" />
           </div>
         </div>
-
         <div>
-          {element}
+        {element}
         </div>
       </div>
     );
