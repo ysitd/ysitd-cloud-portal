@@ -1,90 +1,81 @@
-<nav id="ui_menu" class="menu menu-left nav-drawer nav-drawer-md default-nav">
-    <div class="menu-scroll">
-        <div class="menu-content">
-            <a class="menu-logo" href="/">
-                <span class="avatar"><img src="/images/logo.jpg" alt="YSITD"></span>
-                YSITD Cloud
-            </a>
-            <ul class="nav">
-                @if($user->root)
-                    <li>
-                        <a class="waves-attach" data-toggle="collapse" href="#collapse-user">
-                            <span class="fa fa-users fa-fw margin-right-sm"></span>
-                            User
-                        </a>
-                        <ul class="menu-collapse collapse" id="collapse-user">
-                            <li>
-                                <a class="waves-attach box" href="/user/list">
-                                    <span class="material-icons material-icons-lg margin-right-sm">view_list</span>
-                                    List
-                                </a>
-                            </li>
-                            <li>
-                                <a class="waves-attach box" href="/user/create">
-                                    <span class="fa fa-user-plus fa-fw margin-right-sm"></span>
-                                    Create
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-                <li>
-                    <a href="#collapse-market" data-toggle="collapse"  class="waves-attach">
-                        <span class="material-icons material-icons-lg margin-right-sm">shop_two</span>
-                        Market
-                    </a>
-                    <ul class="menu-collapse collapse" id="collapse-market">
+<div class="container">
+    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+    </a>
+</div>
+
+<ul class="side-nav fixed">
+    <li class="logo">
+        <a href="{{ route('home') }}" class="brand-logo">
+            <img src="{{ url('images/logo.jpg') }}">
+        </a>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header waves-effect waves-teal">
+                    <i class="fa fa-users fa-fw left"></i>
+                    User
+                </a>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                            <a class="waves-attach" href="/market/all">
-                                <span class="material-icons material-icons-lg margin-right-sm">shopping_basket</span>
+                            <a href="{{ url('user/list') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">view_list</i>
+                                List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('view', 'user/create') }}">
+                                <i class="fa fa-user-plus fa-fw left"></i>
+                                Create
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a class="collapsible-header waves-effect waves-teal">
+                    <i class="material-icons material-icons-lg left">shop_two</i>
+                    Market
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="{{ url('market/all') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">shopping_basket</i>
                                 View All
                             </a>
                         </li>
-
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="{{ route('issue.index') }}" class="waves-effect">
+            <i class="material-icons material-icons-lg">error_outline</i>
+            Issue
+        </a>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header waves-effect waves-teal">
+                    <i class="material-icons material-icons-lg left">description</i>
+                    Documentation
+                </a>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                            <a class="waves-attach" href="/market/hosting">
-                                <span class="material-icons material-icons-lg margin-right-sm">web</span>
-                                Hosting
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="waves-attach" href="/market/manage">
-                                <span class="material-icons material-icons-lg margin-right-sm">assignment</span>
-                                Management
+                            <a href="{{ url('doc/vm') }}" class="waves-effect box">
+                                <i class="material-icons material-icons-lg left">computer</i>
+                                Virtual Machine
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a class="waves-attach" href="/issue">
-                        <span class="material-icons material-icons-lg margin-right-sm">error_outline</span>
-                        Issue
-                    </a>
-                </li>
-                <li>
-                    <a class="waves-attach" data-toggle="collapse" href="#collapse-doc">
-                        <span class="material-icons material-icons-lg margin-right-sm">description</span>
-                        Documentation
-                    </a>
-                    <ul class="menu-collapse collapse" id="collapse-doc">
-                        <li>
-                            <a class="waves-attach" href="/doc/vm">
-                                <span class="material-icons material-icons-lg margin-right-sm">computer</span>
-                                Virtual Mechine
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="waves-attach" href="/doc/service">
-                                <span class="material-icons material-icons-lg margin-right-sm">adb</span>
-                                Service
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

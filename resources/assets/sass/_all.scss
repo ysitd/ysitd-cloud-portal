@@ -9,3 +9,21 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, .26);
   }
 }
+
+header {
+  padding-left: 300px;
+}
+
+.page-title {
+  font-size: 48px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}

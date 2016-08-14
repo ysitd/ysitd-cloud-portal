@@ -5,3 +5,23 @@ $brand-color-light: lighten($brand-color, 20%);
 $brand-color-accent:           $palette-indigo-a200;
 $brand-color-accent-dark:      $palette-indigo-a400;
 $brand-color-accent-light:     $palette-indigo-a100;
+
+$base:     8px;
+
+$font-size-h6: 12px;
+$line-height: 20px;
+
+$avatar-height: 40px;
+
+$primary-color: #44A148;
+$secondary-color: color("indigo", "lighten-1");
+
+// grid
+$grid-cols:   12;
+$grid-gutter: ($base * 2);
+
+// responsive
+$screen-lg: 1440px;
+$screen-md: 992px;
+$screen-sm: 768px;
+$screen-xs: 480px;

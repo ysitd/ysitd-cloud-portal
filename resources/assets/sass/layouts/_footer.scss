@@ -1,13 +1,16 @@
 footer {
+
+  padding-left: 300px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: absolute;
+
   &.ui-footer {
     border-top: 1px solid rgba(0,0,0,.12);
     text-align: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
   }
 
   p {
@@ -18,16 +21,16 @@ footer {
     margin: 1em;
     padding: 5px;
     transition: all .3s;
+    color: $white;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.4);
       border-radius: 50%;
       transform: translateX(-3px);
       -webkit-transform: translateX(-3px);
       box-shadow:
-              1px 1px $brand-color,
-              2px 2px $brand-color,
-              3px 3px $brand-color;
+              1px 1px $secondary-color,
+              2px 2px $secondary-color,
+              3px 3px $secondary-color;
     }
   }
 }

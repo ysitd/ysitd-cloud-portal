@@ -1,0 +1,44 @@
+.material-icons {
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-feature-settings: 'liga';
+  font-size: inherit;
+  font-style: normal;
+  font-weight: normal;
+  height: 1em;
+  letter-spacing: normal;
+  line-height: 1;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: -16%;
+  white-space: nowrap;
+  width: 1em;
+  word-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-icons-2x {
+  font-size: 2em;
+}
+
+.material-icons-3x {
+  font-size: 3em;
+}
+
+.material-icons-4x {
+  font-size: 4em;
+}
+
+.material-icons-5x {
+  font-size: 5em;
+}
+
+.material-icons-lg {
+  font-size: 1.4em;
+  vertical-align: -20%;
+  @include responsive("(min--moz-device-pixel-ratio: 0)") {
+    vertical-align: -26%;
+  }
+}

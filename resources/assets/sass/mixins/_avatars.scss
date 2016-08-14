@@ -1,0 +1,8 @@
+@mixin avatar-color($foreground, $background) {
+  background-color: $background;
+  color: $foreground;
+  &:focus,
+  &:hover {
+    color: $foreground;
+  }
+}

@@ -3,3 +3,34 @@
     @extend .box;
   }
 }
+
+nav {
+  .dropdown-button {
+    padding: 15px;
+  }
+}
+
+.side-nav {
+  > .logo {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 80px;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    > a:hover {
+      background-color: transparent;
+    }
+
+    > a > img {
+      height: 57px;
+      margin-bottom: 32px;
+    }
+  }
+
+  i.material-icons, i.fa {
+    color: $black !important;
+  }
+}
