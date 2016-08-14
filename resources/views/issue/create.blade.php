@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
         <section class="content-inner margin-top-no">
-            <form action="/user/create" method="post">
+            <form action="{{ route('issue.store') }}" method="post">
+                {{ csrf_field() }}
                 <div class="card">
                     <div class="card-main">
                         <div class="card-inner">
