@@ -40,9 +40,7 @@ class IssueController extends Controller
         try {
             $issue = Issue::findOrFail($issue);
             if ($request->ajax() || $request->wantsJson()) {
-                return response()->json([
-
-                ]);
+                return response()->json($issue->attributesToArray());
             } else {
                 return view('issue/show', ['title' => 'View Issue', 'issue' => $issue]);
             }

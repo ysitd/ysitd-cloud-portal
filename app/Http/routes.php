@@ -36,6 +36,16 @@ Route::get('/', [
     'uses' => 'HomeController@home'
 ]);
 
+Route::get('hit', [
+    'as' => 'hit',
+    'uses' => 'HomeController@hit'
+]);
+
+Route::get('hit/reset', [
+    'as' => 'hit.reset',
+    'uses' => 'HomeController@reset'
+]);
+
 Route::get('{view}', [
     'as' => 'view',
     'uses' => 'HomeController@playView'

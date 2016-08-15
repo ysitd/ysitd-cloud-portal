@@ -14,8 +14,7 @@ class ClassLoader extends ApcClassLoader
         parent::__construct($prefix, $decorated);
         $this->prefix = $prefix;
         if (!apcu_exists($prefix.'_class_load_total')) {
-            apcu_store($prefix.'_class_load_total', 0);
-            apcu_store($prefix.'_class_load_miss', 0);
+            apcu_store(['portal_class_load_miss' => 0, 'portal_class_load_total' => 0]);
         }
     }
 
