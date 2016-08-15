@@ -2057,6 +2057,10 @@ main {
   padding-left: 300px;
   margin-top: 20px; }
 
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0; } }
+
 html {
   box-sizing: border-box; }
 
@@ -6472,7 +6476,7 @@ form .row:first-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 
 .card .card-content .card-title + div {
-  margin-top: 10px; }
+  margin-top: 15px; }
 
 .material-icons {
   display: inline-block;

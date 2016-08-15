@@ -1,6 +1,6 @@
 <div class="container">
     <a href="#" data-activates="side-nav" class="button-collapse top-nav full hide-on-large-only">
-        <i class="material-icons">menu</i>
+        <i class="material-icons material-icons-lg">menu</i>
     </a>
 </div>
 

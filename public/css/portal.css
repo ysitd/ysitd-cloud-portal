@@ -4901,6 +4901,10 @@ main {
   padding-left: 300px;
   margin-top: 20px; }
 
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0; } }
+
 nav .dropdown-button {
   padding: 15px; }
 
