@@ -22,9 +22,15 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
         'as' => 'auth.github.oauth',
         'uses' => 'AuthController@githubRedirect'
     ]);
+
     Route::get('github/callback', [
         'as' => 'auth.github.callback',
         'uses' => 'AuthController@githubCallback'
+    ]);
+
+    Route::get('signout', [
+        'as' => 'auth.signout',
+        'uses' => 'AuthController@signout'
     ]);
 
 });

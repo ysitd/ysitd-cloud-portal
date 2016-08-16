@@ -35,11 +35,11 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::check() && $request->url() !== route('auth.signin')) {
+        if (!$this->auth->check() && !preg_match('/^auth\//', $request->path())) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->route('auth.signin');
+                abort(401);
             }
         }
 

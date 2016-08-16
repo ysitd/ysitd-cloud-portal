@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->text('email');
             $table->text('logo')->nullable()->default(null);
             $table->boolean('root')->default(false);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
